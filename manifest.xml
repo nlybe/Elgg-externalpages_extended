@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin_manifest xmlns="http://www.elgg.org/plugin_manifest/1.8">
+	<name>Site Pages Extended</name>
+	<id>externalpages_extended</id>
+	<author>Team Webgalli</author>
+	<version>1.0</version>
+	<category>Team Webgalli</category>
+	<description>Allow site admin to create simple web pages for any contents.</description>
+	<website>http://www.webgalli.com/</website>
+	<copyright>See COPYRIGHT.txt</copyright>
+	<license>GNU General Public License version 2</license>
+	<requires>
+		<type>elgg_release</type>
+		<version>2.0</version>
+	</requires>
+	<requires>
+		<type>plugin</type>
+		<name>externalpages</name>
+	</requires>
+	<requires>
+		<type>priority</type>
+		<priority>after</priority>
+		<plugin>externalpages</plugin>
+	</requires>			
+</plugin_manifest>
