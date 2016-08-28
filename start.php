@@ -16,6 +16,9 @@ function expages_extended_init() {
 	elgg_register_plugin_hook_handler('register', 'menu:expages', 'expages_extended_menu_register_hook');
 
 	expages_extended_setup_footer_menu();
+
+	elgg_unregister_action("expages/edit");
+	elgg_register_action("expages/edit", __DIR__ . '/actions/edit.php', 'admin');		
 }
 
 /**
