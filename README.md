@@ -3,6 +3,7 @@ Elgg - External pages Extended
 
 This is an updated version of [External pages Extended](https://github.com/teamwebgalli/Elgg-externalpages_extended) plugin for Elgg 3.x compatibility.
 
+
 ## Author Information:
  *	Author : Raez | Team Webgalli
  *	Team Webgalli | Elgg developers and consultants
