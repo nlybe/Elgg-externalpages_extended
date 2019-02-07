@@ -5,14 +5,14 @@
 	<author>Team Webgalli</author>
 	<version>1.0</version>
 	<category>Team Webgalli</category>
-	<description>Allow site admin to create simple web pages for any contents.</description>
+	<description>Allow site admin to create simple web pages for any contents. Updated version for Elgg 3.x compatibility.</description>
 	<website>http://www.webgalli.com/</website>
 	<copyright>See COPYRIGHT.txt</copyright>
 	<license>GNU General Public License version 2</license>
 	<requires>
-		<type>elgg_release</type>
-		<version>2.0</version>
-	</requires>
+        <type>elgg_release</type>
+        <version>3.0</version>
+    </requires>
 	<requires>
 		<type>plugin</type>
 		<name>externalpages</name>

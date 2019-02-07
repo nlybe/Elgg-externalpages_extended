@@ -1,5 +1,7 @@
 Elgg - External pages Extended
-========================
+=============================
+
+This is an updated version for Elgg 3.x compatibility.
 
 ## Author Information:
  *	Author : Raez | Team Webgalli

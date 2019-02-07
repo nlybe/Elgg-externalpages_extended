@@ -5,20 +5,25 @@ elgg_register_event_handler('init', 'system', 'expages_extended_init');
 function expages_extended_init() {
 	
 	$external_pages = expages_extended_pages();
-	foreach($external_pages as $page){
-		elgg_register_page_handler($page, 'expages_page_handler');
+	foreach($external_pages as $page) {
+		elgg_register_route('my_plugin:section', [
+			'path' => "/{$page}",
+			'resource' => "expages",
+			'defaults' => [
+				'expage' =>  $page,
+			],
+			'walled' => false,
+		]);
+
+		if (!is_registered_entity_type('object', $page)) {
+			elgg_register_entity_type('object', $page);
+		}
 	}
 	
-	elgg_unregister_plugin_hook_handler('public_pages', 'walled_garden', 'expages_public');
-	elgg_register_plugin_hook_handler('public_pages', 'walled_garden', 'expages_extended_public');
-
 	elgg_unregister_plugin_hook_handler('register', 'menu:expages', 'expages_menu_register_hook');
 	elgg_register_plugin_hook_handler('register', 'menu:expages', 'expages_extended_menu_register_hook');
 
-	expages_extended_setup_footer_menu();
-
-	elgg_unregister_action("expages/edit");
-	elgg_register_action("expages/edit", __DIR__ . '/actions/edit.php', 'admin');		
+	expages_extended_setup_footer_menu();	
 }
 
 /**
@@ -45,28 +50,36 @@ function expages_extended_menu_register_hook($hook, $type, $return, $params) {
 		
 	$pages = expages_extended_pages();
 	foreach ($pages as $page) {
-		$return[] = ElggMenuItem::factory(array(
+		$return[] = ElggMenuItem::factory([
 			'name' => $page,
 			'text' => elgg_echo("expages:$page"),
-			'href' => "admin/appearance/expages?type=$page",
+			'href' => "admin/configure_utilities/expages?type=$page",
 			'selected' => $page === $type,
-		));
+		]);
 	}
 	return $return;
 }
 
 /**
  * Setup the links to site pages
+ *
+ * @return void
  */
 function expages_extended_setup_footer_menu() {
 	$pages = expages_extended_pages();
 	foreach ($pages as $page) {
-		$url = "$page";
-		$wg_item = new ElggMenuItem($page, elgg_echo("expages:$page"), $url);
-		elgg_register_menu_item('walled_garden', $wg_item);
+		elgg_register_menu_item('walled_garden', [
+			'name' => $page,
+			'text' => elgg_echo("expages:$page"),
+			'href' => $page,
+		]);
 
-		$footer_item = clone $wg_item;
-		elgg_register_menu_item('footer', $footer_item);
+		elgg_register_menu_item('footer', [
+			'name' => $page,
+			'text' => elgg_echo("expages:$page"),
+			'href' => $page,
+			'section' => 'meta',
+		]);
 	}
 }
 

@@ -4,14 +4,12 @@ if (!isset($vars['entity']->pages)) {
 	$vars['entity']->pages = 'about,terms,privacy';
 }
 
-echo '<div>';
-echo elgg_echo('expages:extendedpages');
-echo ' ';
-echo elgg_view('input/text', array(
+echo elgg_view_field([
+    '#type' => 'text',
 	'name' => 'params[pages]',
 	'value' => $vars['entity']->pages,
-));
-echo '</div>';
+	'#label' => elgg_echo('expages:extendedpages'),
+]);
 
 $text = elgg_echo('expages:extendedpages:languagenotification');
 echo "<div class='mts'>

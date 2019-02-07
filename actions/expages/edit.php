@@ -1,7 +1,6 @@
 <?php
 /**
  * Elgg external pages: create or update
- *
  */
 
 // Get input data and don't filter the content
@@ -13,8 +12,7 @@ if ($guid) {
 	// update
 	$expages = get_entity($guid);
 	if (!$expages) {
-		register_error(elgg_echo("expages:error"));
-		forward(REFERER);
+		return elgg_error_response(elgg_echo('expages:error'));
 	}
 } else {
 	// create
@@ -29,9 +27,7 @@ $expages->description = $contents;
 // Flag this content as an external page
 $expages->external_page = true;
 if (!$expages->save()) {
-	register_error(elgg_echo("expages:error"));
-	forward(REFERER);
+	return elgg_error_response(elgg_echo('expages:error'));
 }
 
-system_message(elgg_echo("expages:posted"));
-forward(REFERER);
+return elgg_ok_response('', elgg_echo('expages:posted'), REFERER);
