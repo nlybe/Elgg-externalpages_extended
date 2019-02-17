@@ -1,0 +1,25 @@
+{
+    "name": "nlybe/externalpages_extended",
+    "description": "Allow site admin to create simple web pages for any contents. Updated version for Elgg 3.x compatibility.",
+    "type": "elgg-plugin",
+    "keywords": [
+        "elgg", 
+        "plugin",
+        "externalpages"
+    ],
+    "homepage": "https://github.com/nlybe/Elgg-externalpages_extended",
+    "license": "GPL-2.0",
+    "authors": [
+        {
+            "name": "Nikos Lyberakis",
+            "email": "nikos@lyberakis.gr",
+            "role": "Web Developer"
+        }
+    ],
+    "require": {
+        "composer/installers": ">=1.0.8"
+    },
+    "extra": {
+        "installer-name": "externalpages_extended"
+    }
+}
