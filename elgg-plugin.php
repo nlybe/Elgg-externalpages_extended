@@ -1,6 +1,6 @@
 <?php
 /**
- * Roles for dental-materials.community
+ * Site Pages Extended
  * @package externalpages_extended 
  */
 
